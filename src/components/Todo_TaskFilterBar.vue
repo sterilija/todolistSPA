@@ -1,9 +1,15 @@
 <template>
   <div class="d-flex justify-center py-4">
-    <v-btn-toggle v-model="toggle_one" divided variant="outlined" mandatory color="teal-lighten-4" @click="passSelected">
-      <v-btn>All tasks</v-btn>
-      <v-btn>Unfinished</v-btn>
-      <v-btn>Finished</v-btn>
+    <v-btn-toggle v-model="toggle_one" variant="outlined" mandatory color="yellow-lighten-1" @click="passSelected">
+      <router-link to="/">
+        <v-btn value="All">All tasks</v-btn>
+      </router-link>
+      <router-link to="/unfinished">
+        <v-btn value="Unfinished">Unfinished</v-btn>
+      </router-link>
+      <router-link to="/finished">
+        <v-btn value="Finished">Finished</v-btn>
+      </router-link>
     </v-btn-toggle>
   </div>
 </template>
@@ -13,7 +19,7 @@ export default{
   name: "Todo_TaskFilterBar",
   data(){
     return{
-      toggle_one: 0,
+      toggle_one: 'All',
       }
     },
   methods: {
