@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Todo from '../../components/Todo.vue';
+import App from "../../App.vue";
 
 const routes = [
-    {path: '/', name: 'All', component: Todo},
-    {path: '/unfinished', name: 'Unfinished', component: Todo},
-    {path: '/finished', name: 'Finished', component: Todo},
+    {path: '/:taskFilter', component: App},
 ];
 const router = createRouter({
     history:createWebHistory(),
