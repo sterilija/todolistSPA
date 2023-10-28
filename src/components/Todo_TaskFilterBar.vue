@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center py-4">
+  <div class="d-flex justify-center pt-5">
     <v-btn-toggle v-model="toggle_one" variant="outlined" mandatory color="yellow-lighten-1" @click="passSelected">
       <router-link to="/">
         <v-btn value="All">All tasks</v-btn>
