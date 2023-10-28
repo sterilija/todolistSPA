@@ -13,13 +13,15 @@
                     variant="outlined"
                     :rules="rules"
                     label="Task description"
+                    v-model="newTask_desc"
       >
       </v-text-field>
-      <v-textarea label="Task details" rounded="0" variant="outlined"></v-textarea>
+      <v-textarea label="Task details" rounded="0" variant="outlined" v-model="newTask_details"></v-textarea>
       <v-btn block
              rounded="0"
              variant="tonal"
              size="large"
+             @click="taskAdd()"
       >Add task</v-btn>
     </div>
   </v-form>
@@ -28,7 +30,12 @@
 <script>
 export default {
   name: "Todo_TaskAdd",
+  props: [
+    'tasksArr',
+  ],
   data: ()=> ({
+    newTask_desc: '',
+    newTask_details: '',
     rules: [
         value => {
       if (value) return true
@@ -54,6 +61,18 @@ export default {
       }
     }
   }),
+  methods:{
+    tasksFetch(array = this.tasksArr) { //TODO: Remove duplicates from here and Todo_TaskList.vue
+      array.forEach((element, index) => element.id = index);
+    },
+    taskAdd(arr = this.tasksArr){
+      arr.push({
+        shortDesc: this.newTask_desc,
+        text: this.newTask_details,
+      });
+      this.tasksFetch()
+    }
+  },
   computed(){
     this.expandHeight(this.$refs.formRef)
   }
