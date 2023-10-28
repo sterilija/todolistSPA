@@ -1,16 +1,26 @@
+.trans-all-0_3{
+  transition: all 0.3s;
+}
+.h-0-n{
+  height: 0;
+}
+
 .v-list-item{
-  transition: padding 0.3s, filter 0.3s;
-    .v-list-item-title{
-      //max-width: 75%;
-    };
+  transition: padding 0.3s, color 0.15s;
+
     .v-list-item-subtitle{
-      //max-width: 75%;
-      display: none;
+      filter: opacity(0);
+      height: 0;
+      transition: filter 0.3s, height 0.3s;
       grid-column-start: 1;
       grid-column-end: 2;
+      word-wrap: normal;
     };
     .tasklist_itm_toolbar{
-      display: none;
+      display: flex;
+      height: 0;
+      filter: opacity(0);
+      transition: all 0.3s;
       justify-content: space-around;
       align-items: center;
       grid-row-start: 1;
@@ -33,10 +43,14 @@
   &:hover, &:focus, &:active{
     padding: 8px 16px 8px 20px !important;
     .v-list-item-subtitle{
-      display: flow-root;
+      filter: opacity(1);
+      height: 28px;
+      //max-height: 100px;
+      overflow-y: auto;
     }
     .tasklist_itm_toolbar{
-      display: flex;
+      height: 54px;
+      filter: opacity(1);
     }
   }
   .v-list-item__content{
@@ -44,4 +58,9 @@
     grid-template-rows: min-content min-content;
     grid-template-columns: 75% 25%;
   }
+}
+
+.tasklist_itm-finished{
+  color: rgb(158, 158, 255);
+  //border-color: rgb(158, 158, 255);
 }
